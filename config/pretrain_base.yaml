@@ -1,0 +1,128 @@
+tuning:
+  empty:
+fix:
+
+# vocab
+  vocab_size: 8196 # Number of codebook vectors.
+  vocab_emb: 32
+
+
+#model patam
+  mask_ratio: 0.5 # probability for how much latent codes to keep.
+  #tconv
+  n_chans: 1
+  out_chans: 8
+
+  #encoder
+  out_indices: [0, 2, 4, 6, 8, 11]
+  n_embd: 200 #Transformer d_model 
+  drop_path_rate: 0.1  
+  n_layer: 12   # Transformer layer 
+  n_head: 10   # Transformer head  
+
+  mimic_loss_type: 'mse'
+
+  # mimic 
+  target_n_embd: 200
+  #decoder                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+  decoder_n_embd: 200
+  decoder_drop_path_rate: 0.1
+  decoder_n_layer: 8
+  decoder_n_head: 10
+  
+  #common
+  model_window_size: 200
+  embd_pdrop: 0.05 
+  resid_pdrop: 0.05 
+  attn_pdrop: 0.05 
+  layer_scale_init_values: 0.1
+
+#training
+  batch_size: 128 # Input batch size for training
+  epochs: 50 # Number of epochs to train 
+  warmup_epochs: 5
+  warmup_steps: -1  
+
+  
+  lr:  # Learning rate
+  blr: 1.e-4  #base learning rate: absolute_lr = base_lr * total_batch_size / 256
+  min_lr: 1.e-5
+  grad_clip: 1.0
+
+  opt: adamw
+  opt_eps: 1.e-8
+  opt_betas:
+  accum_iter: 1  # gradient accum
+
+
+  weight_decay: 0.05 
+  weight_decay_end: 
+
+
+# model control
+  if_sandwich_norm: False
+  if_causal_attention: False
+
+  if_mff: True
+  if_mimic: True
+  if_pad_with_cls_token: True
+
+  if_scratch: False
+  if_finetune: False
+
+
+
+
+#data
+  window_size: [800,800
+  ]  #corresponds to dataset
+  test_window_size: [800]  #corresponds to test dataset
+  stride_size: 200
+  test_stride_size: 200
+
+  sample_rate: 200
+  # second: 4   #window_size//sample_rate
+
+#path & dataset
+  config_path: ./config/pretrain_base.yaml
+  run_escription: pretrain_base
+  home_path: ./result
+  h5_data_path: your data path
+  dataset: [
+  'dataset1','dataset2']
+  test_dataset: ['dataset3']
+  load_model_path:    
+  vqgan_model_path: './checkpoints/base_class_quantization.pth'
+
+
+#others
+  if_DDP: True
+  num_workers: 16
+  device: 'cuda'
+  seed: 0
+  start_epoch: 0
+
+#ch_list
+  RUIJIN: ['FP1', 'FP2', 'F3', 'F4', 'C3', 'C4', 'P3', 'P4', 'O1', 'O2', 'F7', 'F8', 'T7', 'T8', 'P7', 'P8', 'FZ', 'CZ', 'PZ'] #t3->t7 t4->t8 t5->p7 t6->p8
+  TUAB: ['FP1', 'FP2', 'F3', 'F4', 'C3', 'C4', 'P3', 'P4', 'O1', 'O2', 'F7', 'F8', 'T7', 'T8', 'P7', 'P8', 'FZ', 'CZ', 'PZ']  #t3->t7 t4->t8 t5->p7 t6->p8
+  TUSZ: ['FP1', 'FP2', 'F3', 'F4', 'C3', 'C4', 'P3', 'P4', 'O1', 'O2', 'F7', 'F8','T7', 'T8', 'P7', 'P8', 'CZ']  #t3->t7 t4->t8 t5->p7 t6->p8
+  TUEV: ['FP1', 'FP2', 'F3', 'F4', 'C3', 'C4', 'P3', 'P4', 'O1', 'O2', 'F7', 'F8', 'T7', 'T8', 'P7', 'P8', 'FZ', 'CZ', 'PZ'] 
+  all_ch_list: [
+    'FP1', 'FPZ', 'FP2', 
+    'AF9', 'AF7', 'AF5', 'AF3', 'AF1', 'AFZ', 'AF2', 'AF4', 'AF6', 'AF8', 'AF10', 
+    'F9', 'F7', 'F5', 'F3', 'F1', 'FZ', 'F2', 'F4', 'F6', 'F8', 'F10', 
+    'FT9', 'FT7', 'FC5', 'FC3', 'FC1', 'FCZ', 'FC2', 'FC4', 'FC6', 'FT8', 'FT10', 
+    'T9', 'T7', 'C5', 'C3', 'C1', 'CZ', 'C2', 'C4', 'C6', 'T8', 'T10', 
+    'TP9', 'TP7', 'CP5', 'CP3', 'CP1', 'CPZ', 'CP2', 'CP4', 'CP6', 'TP8', 'TP10', 
+    'P9', 'P7', 'P5', 'P3', 'P1', 'PZ', 'P2', 'P4', 'P6', 'P8', 'P10', 
+    'PO9', 'PO7', 'PO5', 'PO3', 'PO1', 'POZ', 'PO2', 'PO4', 'PO6', 'PO8', 'PO10', 
+    'O1', 'OZ', 'O2', 'O9', 'CB1', 'CB2', 
+    'IZ', 'O10', 'T3', 'T5', 'T4', 'T6', 'M1', 'M2', 'A1', 'A2', 
+    'CFC1', 'CFC2', 'CFC3', 'CFC4', 'CFC5', 'CFC6', 'CFC7', 'CFC8', 
+    'CCP1', 'CCP2', 'CCP3', 'CCP4', 'CCP5', 'CCP6', 'CCP7', 'CCP8', 
+    'T1', 'T2', 
+    "FP1-F7", "F7-T7", "T7-P7", "P7-O1", "FP2-F8", "F8-T8", "T8-P8", "P8-O2", "FP1-F3", "F3-C3", "C3-P3", "P3-O1", "FP2-F4", "F4-C4", "C4-P4", "P4-O2"
+]
+
+
+
