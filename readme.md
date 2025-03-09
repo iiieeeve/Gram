@@ -1,5 +1,14 @@
 # Gram
-This is the code of Gram. 
+This is the code of Gram:"Gram: A Large-Scale General EEG Model for Raw Data Classification and Restoration Tasks".
+
+Please cite:
+
+>@inproceedings{li2025gram,\
+    title={Gram: A Large-Scale General {EEG} Model for Raw Data Classification and Restoration Tasks},\
+    author={Ziyi Li and Wei-Long Zheng and Bao-Liang Lu},\
+    booktitle={2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},\
+    year={2025},\
+}
 
 # Requirements
 ` pip install -r requirements.txt `
@@ -17,7 +26,7 @@ This is the code of Gram.
 - Data Restoration: please refer to 'gen_data.py'
 
 # Datasets
-The EEG data used for pretrainind comes from more than 15 datasets with various montages, duration, acquisition devices, experimental paradigms, etc. The information of pre-training datasets is in the following table. We sort the datasets according to the duration. The $C$ and  $T$  in Table  mean  the number of channels  and the input duration, respectively. They are derived from the input EEG signals $X \in \mathbb{R}^{C\times T}$. We set $T$ according to $C$ to ensure that the number of patches $N\approx 256$ for each dataset ($N=C \times \lfloor \frac{T}{w} \rfloor ,\quad w=200$). For each pre-training dataset, we construct a separate dataloader to address the different values of $N$. The total time of pre-training data is 7124 hours (for both stage 1 and stage 2). The total time of public datasets is 2749.13 hours, while the total time of self-collected EEG Data and RUIJIN hospital dataset is 4375.14 hours. 
+The EEG data used for pretrainind comes from more than 15 datasets with various montages, duration, acquisition devices, experimental paradigms, etc. The information of pre-training datasets is in the following table. We sort the datasets according to the duration. The $C$ and  $T$  in Table  mean  the number of channels  and the input duration, respectively. They are derived from the input EEG signals $X \in \mathbb{R}^{C\times T}$. We set $T$ according to $C$ to ensure that the number of patches $N\approx 256$ for each dataset ($N=C \times \lfloor \frac{T}{w} \rfloor ,\quad w=200$). For each pre-training dataset, we construct a separate dataloader to address the different values of $N$. The total time of pre-training data is 7290.85 hours (for both stage 1 and stage 2). The total time of public datasets is 2915.7 hours, while the total time of self-collected EEG Data and RUIJIN hospital dataset is 4375.14 hours. 
 
 >**Self-collected EEG Data:** We use the ESI NeuroScan System to collect EEG data. This dataset contains several sub-datasets with multiple paradigms including emotional video stimuli, resting state, figure stimuli, etc.  Participants are instructed to gaze at the computer screen to watch stimuli or maintain a resting state, and subsequently, they are required to rate the stimuli or their own states according to on-screen instructions. 
 
