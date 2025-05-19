@@ -5,7 +5,7 @@ Please cite:
 
 >@inproceedings{li2025gram,\
     title={Gram: A Large-Scale General {EEG} Model for Raw Data Classification and Restoration Tasks},\
-    author={Ziyi Li and Wei-Long Zheng and Bao-Liang Lu},\
+    author={Li, Ziyi  and Zheng, Wei-Long  and Lu, Bao-Liang },\
     booktitle={2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},\
     year={2025},\
 }
