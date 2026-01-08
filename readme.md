@@ -3,12 +3,16 @@ This is the code of Gram:"Gram: A Large-Scale General EEG Model for Raw Data Cla
 
 Please cite:
 
->@inproceedings{li2025gram,\
-    title={Gram: A Large-Scale General {EEG} Model for Raw Data Classification and Restoration Tasks},\
-    author={Li, Ziyi  and Zheng, Wei-Long  and Lu, Bao-Liang },\
-    booktitle={2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},\
-    year={2025},\
-}
+>@ARTICLE{11271181,
+  author={Li, Zi-Yi and Zheng, Wei-Long and Xu, Jiwen and Lu, Yong and Lu, Bao-Liang},
+  journal={IEEE Transactions on Affective Computing}, 
+  title={Gram: A Large General EEG Model for Raw Data Classification and Restoration}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-16},
+  keywords={Electroencephalography;Brain modeling;Image restoration;Data models;Autoencoders;Image reconstruction;Adaptation models;Emotion recognition;Decoding;Quantization (signal);EEG classification;EEG restoration;Transformer;Self-supervised learning;Generative modeling;Masked autoencoder;Large EEG model},
+  doi={10.1109/TAFFC.2025.3638592}}
 
 # Requirements
 ` pip install -r requirements.txt `
@@ -57,3 +61,4 @@ Objective and subjective evaluation of online error correction during p300-based
 14. Silvia López, I Obeid, and J Picone. Automated interpretation of abnormal adult electroen-
 cephalograms. MS Thesis, Temple University, 2017.
 15. Vinit Shah, Eva Von Weltin, Silvia Lopez, James Riley McHugh, Lillian Veloso, Meysam Golmohammadi, Iyad Obeid, and Joseph Picone.  The temple university hospital seizure detection corpus. Frontiers in Neuroinformatics, 12:83, 2018
+
