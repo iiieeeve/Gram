@@ -1,5 +1,5 @@
 # Gram
-This is the code of Gram:"Gram: A Large-Scale General EEG Model for Raw Data Classification and Restoration Tasks".
+This is the code of Gram:"Gram: A Large General EEG Model for Raw Data Classification and Restoration".
 
 Please cite:
 
@@ -61,4 +61,5 @@ Objective and subjective evaluation of online error correction during p300-based
 14. Silvia López, I Obeid, and J Picone. Automated interpretation of abnormal adult electroen-
 cephalograms. MS Thesis, Temple University, 2017.
 15. Vinit Shah, Eva Von Weltin, Silvia Lopez, James Riley McHugh, Lillian Veloso, Meysam Golmohammadi, Iyad Obeid, and Joseph Picone.  The temple university hospital seizure detection corpus. Frontiers in Neuroinformatics, 12:83, 2018
+
 
